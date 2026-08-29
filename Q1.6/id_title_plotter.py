@@ -143,7 +143,7 @@ print("   - It applies Postgres' base-256 scalar math to those weights to map th
 
 
 # ==========================================
-# 5. PLOT 4: ID COLUMN (INTEGER EQUI-WIDTH/DEPTH)
+# 5. PLOT 4: ID COLUMN (INTEGER DEPTH)
 # ==========================================
 id_bucket_height = 1.0 / (len(id_bounds_raw) - 1)
 id_widths = [id_bounds_raw[i+1] - id_bounds_raw[i] for i in range(len(id_bounds_raw)-1)]
@@ -154,7 +154,7 @@ plt.bar(id_bounds_raw[:-1], id_heights, width=id_widths, align='edge', edgecolor
 
 plt.xticks(id_bounds_raw, [str(b) for b in id_bounds_raw], rotation=90, fontsize=6)
 plt.ylabel(f"Frequency (Exact: {id_bucket_height:.2f})", fontsize=12)
-plt.title("Equi-Depth / Equi-Width Histogram for 'id' Column", fontsize=14)
+plt.title("Equi-Depth Histogram for 'id' Column", fontsize=14)
 plt.xlim(min(id_bounds_raw), max(id_bounds_raw))
 plt.margins(x=0)
 plt.tight_layout()
